@@ -32,7 +32,6 @@ class ConfigReader
         if (!file_exists($filePath)) {
             throw new Exception('Configuation file not found at: '.$filePath);
         }
-
         $contents = include($filePath);
 
         static::$config[$fileName] = $contents;

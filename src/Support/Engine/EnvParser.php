@@ -10,11 +10,9 @@ class EnvParser
 
     public static function getConfig($key = null)
     {
-        if (static::$config) {
-            return static::$config;
+        if (!static::$config) {
+            static::$config = static::getValuesFromFile();
         }
-
-        static::$config = static::getValuesFromFile();
 
         if ($key) {
             return static::$config[$key] ?? null;
